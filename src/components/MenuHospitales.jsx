@@ -26,7 +26,7 @@ export default class MenuHospitales extends Component {
     render() {
         return (
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
-                <div className="container-fluid">
+                <div className="container-fluid bg-secondary">
                     <a className="navbar-brand" href="#">Navbar</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -37,11 +37,14 @@ export default class MenuHospitales extends Component {
                                 <NavLink to="/" className="nav-link active" aria-current="page">Home</NavLink>
                             </li>
                             <li className="nav-item">
+                                <NavLink to="/hospitales" className="nav-link active" aria-current="page">Hospitales</NavLink>
+                            </li>
+                            <li className="nav-item">
                                 <NavLink to="/crearhospital" className="nav-link active">Añadir Hospital</NavLink>
                             </li>
-                            <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Dropdown
+                            {/* <li className="nav-item dropdown">
+                                <a className="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Hospitales
                                 </a>
                                 <ul className="dropdown-menu">
                                     {
@@ -55,7 +58,7 @@ export default class MenuHospitales extends Component {
                                         })
                                     }
                                 </ul>
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
                 </div>

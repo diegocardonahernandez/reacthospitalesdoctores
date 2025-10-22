@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Global from '../Global'
 import axios from 'axios'
+import { Navigate } from 'react-router-dom'
 
 export default class Createhospital extends Component {
 
@@ -14,7 +15,7 @@ export default class Createhospital extends Component {
         e.preventDefault()
 
         let hospital = {
-            idhospital: parseInt(this.cajaCamas.current.value),
+            idhospital: parseInt(this.cajaId.current.value),
             nombre: this.cajaNombre.current.value,
             direccion: this.cajaDireccion.current.value,
             telefono: this.cajaTelefono.current.value,
@@ -24,13 +25,26 @@ export default class Createhospital extends Component {
         let request = "https://apicrudhospital.azurewebsites.net/webresources/hospitales/post"
         axios.post(request, hospital).then(response => {
             console.log("Hospital insertado correctamente !")
+            this.setState({
+                status: true
+            })
         })
 
+    }
+
+    state = {
+        status: false
     }
     
     render() {
         return (
             <div>
+
+            {
+                this.state.status &&
+                <Navigate to="/hospitales"/>
+            }
+
                 <h2 style={{ color: "darkgreen", textAlign: "center", padding: "2em" }}>RELLENE LOS DATOS PARA AÑADIR UN  NUEVO HOSPITAL</h2>
 
                 <form className='w-25 mx-auto' onSubmit={this.insertNewHospital}>
